@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SGPyME</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="nav-container">
+    <div class="logo-area">
+      <img src="img\Logo.png" alt="Logo SGPyME" class="logo-img">
+      <div class="logo-texto">
+        <h1>SGPyME</h1>
+        <p>ayudando con su negocio</p>
+      </div>
+    </div>
+    <div class="menu-responsive">
+  <div class="menu-toggle" id="toggle-menu">
+    ☰
+  </div>
+  <nav class="nav-responsive" id="nav-menu">
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="quienes-somos.html">Quiénes Somos</a></li>
+      <li><a href="que_hacemos.html">Qué Hacemos</a></li>
+      <li><a href="products.html">Productos</a></li>
+      <li><a href="clientes.html">Clientes</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+  </nav>
+</div>
+  </div>
+</header>
+
+  <main>
+
+<section id="nuestros-clientes">
+  <div class="clientes-container">
+    <h2>Nuestros Clientes</h2>
+    <p class="intro">
+      Estos son algunos de los proyectos y marcas que confiaron en nuestro enfoque creativo y funcional .
+    </p>
+
+    <div class="clientes-grid">
+
+      <!-- Cliente 1 -->
+      <div class="cliente-card">
+        <img src="..\SGPYME\img\mann.jpg" alt="Logo Cliente 1">
+      </div>
+
+      <!-- Cliente 2 -->
+      <div class="cliente-card">
+        <img src="..\SGPYME\img\ecopiano.png" alt="Logo Cliente 2">
+      </div>
+
+      <!-- Cliente 3 -->
+      <div class="cliente-card">
+        <img src="..\SGPYME\img\reyfil.png" alt="Logo Cliente 3">
+      </div>
+
+       <!-- Cliente 4 -->
+      <div class="cliente-card">
+        <img src="..\SGPYME\img/savia.jpg" alt="Logo Cliente 3">
+      </div>
+
+
+      <!-- Agregás más si querés 💼 -->
+       
+    </div>
+  </div>
+</section>
+
+<section id="contacto">
+  <div class="contacto-container">
+    <h2>Contacto</h2>
+    <p class="intro">
+      ¿Querés saber más o trabajar con nosotros? Escribinos y te responderemos lo antes posible 📩
+    </p>
+
+   <form action="procesar-formulario.php" method="POST" class="formulario">
+  <label for="nombre">Nombre</label>
+  <input type="text" name="nombre" id="nombre" required>
+
+  <label for="email">Correo electrónico</label>
+  <input type="email" name="email" id="email" required>
+
+  <label for="mensaje">Mensaje</label>
+  <textarea name="mensaje" id="mensaje" rows="5" required></textarea>
+
+  <button type="submit">Enviar</button>
+</form>
+  </div>
+</section>
+<a href="https://wa.me/5492224497617?text=Hola.%20Quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20productos%20y%20servicios%20de%20SGPyME." 
+   class="whatsapp-button" target="_blank" aria-label="WhatsApp SGPyME">
+ <img src="../SGPYME/img/whatsapp.png">
+</a>
+
+ <script>
+  const toggle = document.getElementById('toggle-menu');
+  const navList = document.getElementById('nav-menu').querySelector('ul');
+
+  let menuVisible = false;
+
+  toggle.addEventListener('click', () => {
+    if (!menuVisible) {
+      navList.classList.remove('ocultar');
+      navList.classList.add('mostrar');
+      navList.style.display = 'flex';
+      toggle.textContent = '❌';
+      menuVisible = true;
+    } else {
+      navList.classList.remove('mostrar');
+      navList.classList.add('ocultar');
+      toggle.textContent = '☰';
+      menuVisible = false;
+
+      // Retraso para ocultar visualmente luego de la animación
+      setTimeout(() => {
+        navList.style.display = 'none';
+      }, 400); // debe coincidir con el tiempo en CSS
+    }
+  });
+</script>
+
+  <footer>
+    <p>© SGPyME</p>
+  </footer>
+</body>
+</html>

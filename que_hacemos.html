@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SGPyME</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="nav-container">
+    <div class="logo-area">
+      <img src="img\Logo.png" alt="Logo SGPyME" class="logo-img">
+      <div class="logo-texto">
+        <h1>SGPyME</h1>
+        <p>ayudando con su negocio</p>
+      </div>
+    </div>
+   <div class="menu-responsive">
+  <div class="menu-toggle" id="toggle-menu">
+    ☰
+  </div>
+  <nav class="nav-responsive" id="nav-menu">
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="quienes-somos.html">Quiénes Somos</a></li>
+      <li><a href="que_hacemos.html">Qué Hacemos</a></li>
+      <li><a href="products.html">Productos</a></li>
+      <li><a href="clientes.html">Clientes</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+  </nav>
+</div>
+  </div>
+</header>
+
+  <main>
+   <section id="que-hacemos">
+  <div class="quehacemos-container">
+    <h2>Qué Hacemos</h2>
+    <p class="intro">
+      En SGPyMES transformamos ideas en herramientas concretas y accesibles para pequeñas y medianas empresas 🌟.
+    </p>
+
+    <div class="servicio-grid">
+
+      <!-- Servicio 1 -->
+      <div class="servicio-card">
+         <img src="../SGPYME/img/stock.png">
+        <h3>Digitalización de Stock</h3>
+        <p>Convertimos tus procesos manuales en sistemas visuales con alertas, categorías y control en tiempo real 📦💡.</p>
+      </div>
+
+      <!-- Servicio 2 -->
+      <div class="servicio-card">
+         <img src="../SGPYME/img/creative.png">
+        <h3>Asesoramiento Creativo</h3>
+        <p>Te ayudamos a organizar y presentar tus ideas de forma estructurada y práctica 📑.</p>
+      </div>
+
+       <!-- Servicio 3 -->
+      <div class="servicio-card">
+         <img src="../SGPYME/img/editor.png">
+        <h3>Desarrollo de software y apps móviles</h3>
+        <p>Tanto prediseñadas como personalizadas, para la gestión operativa y financiera 📱📊📈.</p>
+      </div>
+
+      <!-- Servicio 4 -->
+      <div class="servicio-card">
+         <img src="../SGPYME/img/nube-datos.png">
+        <h3>Servicios en la nube</h3>
+        <p>Acceso desde cualquier lugar, sin depender de un dispositivo específico ☁️.</p>
+      </div>
+
+      <!-- Servicio 5 -->
+      <div class="servicio-card">
+         <img src="../SGPYME/img/soporte.png">
+        <h3>Outsourcing y soporte técnico</h3>
+        <p>Acompañamos a empresas que necesitan soluciones adaptadas a su realidad.</p>
+      </div>
+
+      <!-- Servicio 6 -->
+      <div class="servicio-card">
+         <img src="../SGPYME/img/privacy.png">
+        <h3>Privacidad y respaldo</h3>
+        <p>Protegemos tus datos con copias de seguridad diarias 📁🔐.</p>
+      </div>
+
+      <!-- Servicio 7 -->
+      <div class="servicio-card">
+         <img src="../SGPYME/img/compromiso.png">
+        <h3>Compromiso PyMe</h3>
+        <p>trabajamos con foco en comercio, agro y negocios emergentes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contacto">
+  <div class="contacto-container">
+    <h2>Contacto</h2>
+    <p class="intro">
+      ¿Querés saber más o trabajar con nosotros? Escribinos y te responderemos lo antes posible 📩
+    </p>
+
+   <form action="procesar-formulario.php" method="POST" class="formulario">
+  <label for="nombre">Nombre</label>
+  <input type="text" name="nombre" id="nombre" required>
+
+  <label for="email">Correo electrónico</label>
+  <input type="email" name="email" id="email" required>
+
+  <label for="mensaje">Mensaje</label>
+  <textarea name="mensaje" id="mensaje" rows="5" required></textarea>
+
+  <button type="submit">Enviar</button>
+</form>
+  </div>
+</section>
+<a href="https://wa.me/5492224497617?text=Hola.%20Quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20productos%20y%20servicios%20de%20SGPyME." 
+   class="whatsapp-button" target="_blank" aria-label="WhatsApp SGPyME">
+  <img src="../SGPYME/img/whatsapp.png">
+</a>
+
+ <script>
+  const toggle = document.getElementById('toggle-menu');
+  const navList = document.getElementById('nav-menu').querySelector('ul');
+
+  let menuVisible = false;
+
+  toggle.addEventListener('click', () => {
+    if (!menuVisible) {
+      navList.classList.remove('ocultar');
+      navList.classList.add('mostrar');
+      navList.style.display = 'flex';
+      toggle.textContent = '❌';
+      menuVisible = true;
+    } else {
+      navList.classList.remove('mostrar');
+      navList.classList.add('ocultar');
+      toggle.textContent = '☰';
+      menuVisible = false;
+
+      // Retraso para ocultar visualmente luego de la animación
+      setTimeout(() => {
+        navList.style.display = 'none';
+      }, 400); // debe coincidir con el tiempo en CSS
+    }
+  });
+</script>
+  <footer>
+    <p>© SGPyME</p>
+  </footer>
+</body>
+</html>

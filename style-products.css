@@ -1,0 +1,296 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4edf9;
+  color: #16103e;
+  margin: 0;
+  padding: 20px;
+}
+
+.producto-detalle {
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 40px 20px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.producto-detalle h1 {
+  color: #18c4cc;
+  font-size: 2.2em;
+  margin-bottom: 10px;
+}
+
+.producto-detalle .descripcion {
+  font-size: 1.1em;
+  color: #5e4a4a;
+  margin-bottom: 30px;
+}
+
+.galeria {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.galeria img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.video-demo iframe {
+  width: 100%;
+  max-width: 720px;
+  height: 400px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  margin-bottom: 30px;
+}
+
+.btn-contacto {
+  background-color: #18c4cc;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 40px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn-contacto:hover {
+  background-color: #12929b;
+}
+
+/* 📱 Responsive */
+@media screen and (max-width: 768px) {
+  .galeria {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .video-demo iframe {
+    height: 250px;
+  }
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4edf9;
+  color: #16103e;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  padding: 60px 20px;
+}
+
+.producto-detalle {
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 40px 25px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  animation: fadeIn 0.8s ease-out;
+}
+
+.producto-detalle h1 {
+  color: #18c4cc;
+  font-size: 2.2em;
+  margin-bottom: 10px;
+}
+
+.producto-detalle .descripcion {
+  font-size: 1.1em;
+  color: #5e4a4a;
+  margin-bottom: 30px;
+  line-height: 1.5;
+}
+
+.galeria {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.galeria img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.galeria img:hover {
+  transform: scale(1.03);
+}
+
+.video-demo iframe {
+  width: 100%;
+  max-width: 720px;
+  height: 400px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  margin-bottom: 30px;
+}
+
+.btn-detalle {
+  display: inline-block;
+  margin: 10px 10px 0 10px;
+  background-color: #18c4cc;
+  color: #fff;
+  padding: 12px 22px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.95em;
+  transition: background-color 0.3s ease;
+}
+
+.btn-detalle:hover {
+  background-color: #12929b;
+}
+
+/* 🌈 Entrada suave */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 📱 Responsive */
+@media screen and (max-width: 768px) {
+  .galeria {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .video-demo iframe {
+    height: 250px;
+  }
+
+  .producto-detalle {
+    padding: 30px 20px;
+  }
+}
+
+/*lista descripcion*/
+.lista-beneficios {
+  list-style: none;
+  padding-left: 0;
+  max-width: 600px;
+  margin: 0 auto 40px;
+  font-size: 1.05em;
+  line-height: 1.6;
+  color: #5e4a4a;
+}
+
+.lista-beneficios li {
+  background-color: #ede7f6;
+  padding: 12px 18px;
+  margin-bottom: 10px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  transition: background-color 0.3s ease;
+}
+
+.lista-beneficios li:hover {
+  background-color: #dfd4f1;
+}
+
+/*carrusel y flechas*/
+.carrusel-contenedor {
+  position: relative;
+  max-width: 720px;
+  margin: 0 auto 40px;
+  overflow: hidden;
+  border-radius: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+}
+
+/* Slider interno */
+.carrusel {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+/* Cada slide (imagen o video) */
+.slide {
+  min-width: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+  text-align: center;
+  display: none; /* solo el activo se muestra */
+}
+
+.slide.activo {
+  display: block;
+}
+
+/* Estilo visual de imagen y video */
+.slide img,
+.slide iframe {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+  height: 400px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Botones de navegación */
+.flecha {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #18c4cc;
+  color: #fff;
+  border: none;
+  font-size: 1.6em;
+  padding: 10px 14px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  transition: background-color 0.3s ease;
+}
+
+#flecha-izq {
+  left: 10px;
+}
+
+#flecha-der {
+  right: 10px;
+}
+
+.flecha:hover {
+  background-color: #12929b;
+}
+
+/* 📱 Responsive */
+@media screen and (max-width: 768px) {
+  .slide img,
+  .slide iframe {
+    height: 250px;
+  }
+
+  .carrusel-contenedor {
+    margin: 0 10px 30px;
+  }
+
+  .flecha {
+    font-size: 1.3em;
+    padding: 8px 12px;
+  }
+}

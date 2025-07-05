@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Guía de Estilos – Sasha</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fdf9ff;
+      color: #38373d;
+      padding: 40px;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      color: #16103e;
+      margin-bottom: 15px;
+    }
+    .section {
+      margin-bottom: 60px;
+    }
+    .color-box {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .swatch {
+      width: 130px;
+      height: 80px;
+      border-radius: 10px;
+      color: #fff;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    .card-demo {
+      width: 250px;
+      padding: 20px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      margin: 20px 0;
+    }
+    .btn-demo {
+      background-color: #daae93;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-weight: bold;
+      text-decoration: none;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+    }
+    .btn-demo:hover {
+      background-color: #d68180;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎨 Guía de Estilo – Sasha</h1>
+
+  <div class="section">
+    <h2>Paleta de colores</h2>
+    <div class="color-box">
+      <div class="swatch" style="background:#16103e">#16103e</div>
+      <div class="swatch" style="background:#18c4cc">#18c4cc</div>
+      <div class="swatch" style="background:#ede7f6; color:#444;">#ede7f6</div>
+      <div class="swatch" style="background:#fde2d5; color:#444;">#fde2d5</div>
+      <div class="swatch" style="background:#e87b0d">#e87b0d</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Tipografía base</h2>
+    <p style="font-size: 1.1em;">Este es un ejemplo de texto con la fuente <strong>Segoe UI</strong>, tamaño base de 16px.</p>
+  </div>
+
+  <div class="section">
+    <h2>Botón pastel</h2>
+    <a href="#" class="btn-demo">¡Comprar ahora!</a>
+  </div>
+
+  <div class="section">
+    <h2>Tarjeta de producto</h2>
+    <div class="card-demo" style="background:#ffece1;">
+      <img src="https://via.placeholder.com/80" alt="Producto" style="margin-bottom:10px;">
+      <h3 style="color:#a34279;">Mi Producto</h3>
+      <p style="color:#4b3a3a;">Descripción breve del producto.</p>
+      <a href="#" class="btn-demo" style="margin-top: 10px;">Ver más</a>
+    </div>
+  </div>
+
+</body>
+</html>
