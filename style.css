@@ -1,1030 +1,1072 @@
+/* ==========================================================================
+   Base y Utilidades
+   ========================================================================== */
+
+/* Estilos globales para resetear márgenes, paddings y box-sizing */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Estilos para el cuerpo de la página */
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #ede7f6;
-  color: #38373d;
+  font-family: 'Segoe UI', sans-serif; /* Fuente principal */
+  background-color: #ede7f6; /* Color de fondo suave */
+  color: #38373d; /* Color de texto principal */
+  padding-top: 80px; /* Espacio para el menú fijo en la parte superior */
 }
 
-header {
-  background-color: #f0e3ff;
-  padding: 20px;
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-}
-
-nav a {
-  text-decoration: none;
-  color: #7353d1;
-  font-weight: bold;
-  transition: color 0.3s;
-}
-
-nav a:hover {
-  color: #8769ff;
-}
-
+/* Estilos para las secciones generales */
 section {
-  padding: 50px 20px;
-  border-bottom: 1px dashed #dec4f2;
+  padding: 50px 20px; /* Espaciado interno */
+  border-bottom: 1px dashed #dec4f2; /* Borde inferior decorativo */
 }
 
+/* Estilos para el pie de página */
 footer {
-  text-align: center;
-  padding: 20px;
-  background-color: #f3e3ff;
-  font-size: 0.9em;
+  text-align: center; /* Texto centrado */
+  padding: 20px; /* Espaciado interno */
+  background-color: #f3e3ff; /* Color de fondo */
+  font-size: 0.9em; /* Tamaño de fuente ligeramente más pequeño */
 }
 
+/* ==========================================================================
+   Encabezado y Navegación
+   ========================================================================== */
 
-/*LOGO Y TEXTO DINAMISMO*/
-.logo-area {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  animation: fadeInLeft 1s ease-out;
-  transition: transform 0.3s ease;
-}
-.logo-area:hover {
-  transform: scale(1.03);
-}
-
-/* Animación lateral */
-@keyframes fadeInLeft {
-  0%   { opacity: 0; transform: translateX(-30px); }
-  100% { opacity: 1; transform: translateX(0); }
-}
-
-/* Imagen del logo con giro suave */
-.logo-img {
-  width: 55px;
-  animation: rotateIn 1s ease-out;
-  transition: transform 0.4s ease;
-}
-.logo-img:hover {
-  transform: rotate(-8deg) scale(1.05);
-}
-
-/* Texto del logo */
-.logo-texto h1 {
-  color: var(--principal); /* ej: #18c4cc */
-  font-size: 1.5em;
-  margin: 0;
-  animation: floatIn 1s ease-out;
-}
-.logo-texto p {
-  color: var(--acento); /* ej: #fd9f08 */
-  font-size: 0.9em;
-  margin: 0;
-  animation: fadeIn 1.3s ease;
-}
-
-/* Entrada flotante */
-@keyframes floatIn {
-  from { opacity: 0; transform: translateY(-10px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-@keyframes rotateIn {
-  from { transform: rotate(-20deg) scale(0.8); opacity: 0; }
-  to   { transform: rotate(0) scale(1); opacity: 1; }
-}
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-/*DINAMISMO IMG*/
-.tira-fina img {
-  width: 100%;
-  aspect-ratio: 21 / 5;
-  object-fit: cover;
-  border-radius: 10px;
-  animation: zoomIn 1s ease-out;
-}
-
-@keyframes zoomIn {
-  0%   { transform: scale(0.95); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
-}
-
-/* 🌌 Encabezado principal */
+/* Estilos para el encabezado principal */
 header {
-  background-color: #16103e;
-  padding: 20px 40px;
-  color: #5209e4;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+  padding: 20px 40px; /* Espaciado interno */
+  color: #5209e4; /* Color de texto (aunque el texto de navegación lo sobrescribe) */
+  position: sticky; /* Fija el encabezado al hacer scroll */
+  top: 0; /* Se adhiere a la parte superior */
+  z-index: 1000; /* Asegura que esté por encima de otros elementos */
 }
 
-/* 🧩 Contenedor flexible */
+/* Contenedor flexible para el menú de navegación */
 .nav-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
+  display: flex; /* Habilita Flexbox */
+  flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+  justify-content: space-between; /* Distribuye el espacio entre los elementos */
+  align-items: center; /* Alinea los elementos verticalmente al centro */
 }
 
-/* 🖼️ Área de logo + texto */
-.logo-area {
-  display: flex;
-  align-items: center;
-  gap: 15px;
+/* Estilos para la lista de navegación */
+nav ul {
+  list-style: none; /* Elimina los puntos de la lista */
+  display: flex; /* Habilita Flexbox */
+  gap: 25px; /* Espacio entre los elementos de la lista */
+  margin: 0; /* Elimina el margen predeterminado */
+  padding: 0; /* Elimina el padding predeterminado */
 }
 
-.logo-img {
-  width: 50px;
-  height: auto;
+/* Estilos para los enlaces de navegación */
+nav a {
+  color: #ffffff; /* Color de texto blanco */
+  text-decoration: none; /* Elimina el subrayado */
+  font-weight: 600; /* Grosor de la fuente */
+  transition: color 0.3s; /* Transición suave para el cambio de color */
 }
 
-.logo-texto h1 {
-  color: #18c4cc;
-  font-size: 1.5em;
-  margin: 0;
-  line-height: 1.2;
+/* Efecto hover para los enlaces de navegación */
+nav a:hover {
+  color: #18c4cc; /* Cambia el color al pasar el ratón */
 }
 
-.logo-texto p {
-  color: #fd9f08;
-  font-size: 0.9em;
-  margin: 0;
-}
+/* ==========================================================================
+   Menú Responsivo (Mobile First)
+   ========================================================================== */
 
-
+/* Menú responsive fijo en la parte superior */
+/* 🌌 Menú fijo y dinámico */
 .menu-responsive {
-  background-color: #16103e;
-  padding: 15px 20px;
-  position: relative;
-  z-index: 100;
-}
-
-.menu-toggle {
-  font-size: 2.5em;
-  cursor: pointer;
-  color: #18c4cc;
-  display: none;
-}
-
-
-/* Menú desktop */
-.nav-responsive ul {
-  display: flex;
-  gap: 18px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.nav-responsive a {
-  text-decoration: none;
-  color: #f4edf9;
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
-
-.nav-responsive a:hover {
-  color: #18c4cc;
-}
-.nav-responsive ul {
-  display: flex;
-  gap: 25px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  animation: menuSlideIn 1.2s ease-out;
-}
-
-.nav-responsive li {
-  transition: transform 0.3s ease, letter-spacing 0.3s ease;
-}
-
-.nav-responsive li:hover {
-  transform: translateY(-4px);
-  letter-spacing: 0.5px;
-}
-
-.nav-responsive a {
-  text-decoration: none;
-  color: #f4edf9;
-  font-weight: bold;
-  font-size: 1.1em;
-  position: relative;
-  transition: color 0.3s ease;
-}
-
-/* Efecto subrayado pastel que se desliza */
-.nav-responsive a::after {
-  content: "";
-  position: absolute;
+  position: fixed;
+  top: 0;
   left: 0;
-  bottom: -5px;
   width: 100%;
-  height: 2px;
-  background-color: #18c4cc;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.3s ease;
+  background-color: #16103e;
+  z-index: 1000;
+  padding: 15px 30px;
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
 }
 
-.nav-responsive a:hover::after {
-  transform: scaleX(1);
+/* 🌫️ Efecto al hacer scroll */
+.menu-responsive.scrolled {
+  background-color: rgba(22, 16, 62, 0.85); /* tono oscuro con transparencia */
+  backdrop-filter: blur(6px);               /* difuminado suave */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* sombra flotante */
+}
+
+
+/* Contenedor flexible para el logo y el menú en responsive */
+.logo-menu {
+  display: flex; /* Habilita Flexbox */
+  align-items: center; /* Alinea verticalmente al centro */
+  justify-content: space-between; /* Distribuye el espacio */
+  flex-wrap: wrap; /* Permite que los elementos se envuelvan */
+  gap: 20px; /* Espacio entre elementos */
+}
+
+/* Área del logo dentro del menú responsive */
+.menu-responsive .logo-area {
+  display: flex; /* Habilita Flexbox */
+  align-items: center; /* Alinea verticalmente al centro */
+  gap: 15px; /* Espacio entre el logo y el texto */
+  transition: transform 0.3s ease, opacity 0.3s ease; /* Transiciones suaves */
+}
+
+/* Efecto de escala y opacidad cuando el menú responsive se ha desplazado */
+.menu-responsive.scrolled .logo-area {
+  transform: scale(0.95); /* Reduce ligeramente el tamaño */
+  opacity: 0.9; /* Reduce ligeramente la opacidad */
+}
+
+/* Asegurar que el logo y enlaces sean visibles */
+.menu-responsive.scrolled .logo-area h1,
+.menu-responsive.scrolled .logo-area p,
+.menu-responsive.scrolled nav a {
+  color: #ffffff; /* Texto blanco para buena visibilidad */
+  transition: color 0.3s ease;
+}
+
+/* Icono para alternar el menú en dispositivos móviles */
+.menu-toggle {
+  font-size: 2.5em; /* Tamaño del icono */
+  cursor: pointer; /* Cambia el cursor a una mano */
+  color: #18c4cc; /* Color del icono */
+  display: none; /* Oculto por defecto en pantallas grandes */
+}
+
+/* Navegación responsive */
+.nav-responsive {
+  display: flex; /* Habilita Flexbox */
+  align-items: center; /* Alinea verticalmente al centro */
+}
+
+/* Lista de navegación responsive */
+.nav-responsive ul {
+  display: flex; /* Habilita Flexbox */
+  gap: 18px; /* Espacio entre elementos */
+  align-items: center;
+  list-style: none; /* Elimina los puntos de la lista */
+  margin: 0; /* Elimina el margen predeterminado */
+  padding: 0; /* Elimina el padding predeterminado */
+}
+
+/* Enlaces de navegación responsive */
+.nav-responsive a {
+  text-decoration: none; /* Elimina el subrayado */
+  color: #f4edf9; /* Color de texto */
+  font-weight: bold; /* Grosor de la fuente */
+  font-size: 1.1em; /* Tamaño de fuente */
+  position: relative; /* Posicionamiento relativo para el pseudo-elemento */
+  transition: color 0.3s ease; /* Transición suave para el color */
+}
+
+/* Efecto de subrayado al pasar el ratón en enlaces responsive */
+.nav-responsive a::after {
+  content: ""; /* Contenido vacío para el pseudo-elemento */
+  position: absolute; /* Posicionamiento absoluto */
+  left: 0; /* Desde la izquierda */
+  bottom: -5px; /* Debajo del texto */
+  width: 100%; /* Ancho completo */
+  height: 2px; /* Grosor del subrayado */
+  background-color: #18c4cc; /* Color del subrayado */
+  transform: scaleX(0); /* Inicialmente oculto (escala horizontal a 0) */
+  transform-origin: left; /* Origen de la transformación a la izquierda */
+  transition: transform 0.3s ease; /* Transición suave para la transformación */
 }
 
 .nav-responsive a:hover {
   color: #18c4cc;
 }
 
-/* 🌀 Animación de entrada del menú */
-@keyframes menuSlideIn {
+/* Muestra el subrayado al pasar el ratón */
+.nav-responsive a:hover::after {
+  transform: scaleX(1); /* Escala horizontal a 1 para mostrar el subrayado */
+}
+
+/* Efecto hover para los elementos de la lista de navegación responsive */
+.nav-responsive li {
+ opacity: 0;
+  transform: translateY(-10px);
+  animation: menuItemFade 0.6s ease-out forwards;
+  animation-delay: calc(0.1s * var(--i));
+  transition: transform 0.3s ease, letter-spacing 0.3s ease; /* Transiciones suaves */
+}
+
+/* Efecto al pasar el ratón sobre los elementos de la lista de navegación responsive */
+.nav-responsive li:hover {
+  transform: translateY(-4px); /* Desplaza ligeramente hacia arriba */
+  letter-spacing: 0.5px; /* Aumenta ligeramente el espaciado entre letras */
+}
+
+/* ==========================================================================
+   Área del Logo
+   ========================================================================== */
+
+/* Área del logo y texto */
+.logo-area {
+  display: flex; /* Habilita Flexbox */
+  align-items: center; /* Alinea verticalmente al centro */
+  gap: 15px; /* Espacio entre el logo y el texto */
+  animation: fadeInLeft 1s ease-out; /* Animación de entrada */
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Transición suave para la transformación */
+}
+
+/* Efecto hover para el área del logo */
+.logo-area:hover {
+  transform: scale(1.03); /* Ligeramente más grande al pasar el ratón */
+}
+
+/* Imagen del logo */
+.logo-img {
+  width: 55px; /* Ancho del logo */
+  animation: rotateIn 1s ease-out; /* Animación de rotación en la entrada */
+  transition: transform 0.4s ease; /* Transición suave para la transformación */
+}
+
+/* Efecto hover para la imagen del logo */
+.logo-img:hover {
+  transform: rotate(-8deg) scale(1.05); /* Rota y escala ligeramente al pasar el ratón */
+}
+
+/* Contenedor del texto del logo */
+.logo-texto h1 {
+  color: #18c4cc; /* Color del título */
+  font-size: 1.5em; /* Tamaño de fuente */
+  margin: 0; /* Elimina el margen predeterminado */
+  animation: floatIn 1s ease-out; /* Animación de entrada flotante */
+}
+
+/* Párrafo del texto del logo */
+.logo-texto p {
+  color: #fd9f08; /* Color del texto */
+  font-size: 0.9em; /* Tamaño de fuente */
+  margin: 0; /* Elimina el margen predeterminado */
+  animation: fadeIn 1.3s ease; /* Animación de aparición gradual */
+}
+
+/* ==========================================================================
+   Sección de Portada (Hero)
+   ========================================================================== */
+
+/* Contenedor principal de la sección de portada */
+.hero-container {
+  background: linear-gradient(135deg, #d5aefa, #9df0db); /* Degradado de fondo */
+  padding: 80px 20px; /* Espaciado interno */
+  text-align: center; /* Texto centrado */
+  border-radius: 15px; /* Bordes redondeados */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  animation: fadeIn 1.2s ease-in-out; /* Animación de aparición gradual */
+  margin-bottom: 60px; /* Margen inferior para separar de la siguiente sección */
+}
+
+/* Título principal de la sección de portada */
+.hero-container h1 {
+  font-size: 2.5em; /* Tamaño de fuente */
+  color: #e87b0d; /* Color del texto */
+  margin-bottom: 10px; /* Margen inferior */
+}
+
+/* Estilo para la marca dentro del título */
+.hero-container .marca {
+  color: #18c4cc; /* Color de la marca */
+}
+
+/* Subtítulo de la sección de portada */
+.hero-container .subtitulo {
+  font-size: 1.3em; /* Tamaño de fuente */
+  color: #fd9f08; /* Color del texto */
+  margin-bottom: 30px; /* Margen inferior */
+}
+
+/* Imagen dentro de la sección de portada */
+.hero-container .img img {
+  width: 100%; /* Ancho completo */
+  max-width: 600px; /* Ancho máximo */
+  height: auto; /* Altura automática para mantener la proporción */
+  border-radius: 15px; /* Bordes redondeados */
+  object-fit: cover; /* Ajusta la imagen para cubrir el área */
+  display: block; /* Ocupa todo el ancho disponible */
+  margin: 0 auto 30px auto; /* Centra la imagen y añade margen */
+  margin-top: 20px; /* Margen superior */
+}
+
+/* Botón de contacto en la sección de portada */
+.btn-contacto {
+  display: inline-block; /* Permite aplicar padding y margen */
+  background-color: #e87b0d; /* Color de fondo */
+  color: #ffffff; /* Color de texto */
+  padding: 12px 24px; /* Espaciado interno */
+  border-radius: 50px; /* Bordes muy redondeados (forma de píldora) */
+  text-decoration: none; /* Elimina el subrayado */
+  font-weight: bold; /* Grosor de la fuente */
+  transition: background-color 0.5s; /* Transición suave para el color de fondo */
+  margin-top: 20px; /* Margen superior */
+}
+
+/* Efecto hover para el botón de contacto */
+.btn-contacto:hover {
+  background-color: #442607; /* Cambia el color de fondo al pasar el ratón */
+}
+
+/* ==========================================================================
+   Sección "Qué Hacemos"
+   ========================================================================== */
+
+/* Contenedor principal de la sección "Qué Hacemos" */
+.quehacemos-container {
+  background-color: #fbf7ff; /* Color de fondo */
+  padding: 60px 20px; /* Espaciado interno */
+  border-radius: 15px; /* Bordes redondeados */
+  animation: fadeInUp 1s ease; /* Animación de aparición desde abajo */
+  margin-top: 20px; /* Margen superior */
+}
+
+/* Título de la sección "Qué Hacemos" */
+.quehacemos-container h2 {
+  text-align: center; /* Texto centrado */
+  font-size: 2em; /* Tamaño de fuente */
+  color: #965fb5; /* Color del texto */
+  margin-bottom: 20px; /* Margen inferior */
+}
+
+/* Texto introductorio de la sección */
+.quehacemos-container .intro {
+  text-align: center; /* Texto centrado */
+  color: #16103e; /* Color de texto */
+  max-width: 700px; /* Ancho máximo */
+  margin: 0 auto 40px auto; /* Centra el texto y añade margen inferior */
+  font-size: 1.1em; /* Tamaño de fuente */
+}
+
+/* Grid para las tarjetas de servicio */
+.servicio-grid {
+  display: flex; /* Habilita Flexbox */
+  flex-wrap: wrap; /* Permite que las tarjetas se envuelvan */
+  justify-content: center; /* Centra las tarjetas horizontalmente */
+  gap: 30px; /* Espacio entre las tarjetas */
+}
+
+/* Tarjeta individual de servicio */
+.servicio-card {
+  background-color: #e0fbff; /* Color de fondo */
+  width: 260px; /* Ancho fijo */
+  max-width: 90vw; /* Ancho máximo relativo al viewport */
+  padding: 25px 20px; /* Espaciado interno */
+  border-radius: 20px; /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  text-align: center; /* Texto centrado */
+  transition: transform 0.3s, background-color 0.3s; /* Transiciones suaves */
+}
+
+/* Efecto hover para la tarjeta de servicio */
+.servicio-card:hover {
+  transform: translateY(-5px); /* Desplaza ligeramente hacia arriba */
+  background-color: #d3d1ff; /* Cambia el color de fondo */
+}
+
+/* Imagen dentro de la tarjeta de servicio */
+.servicio-card img {
+  width: 80px; /* Ancho de la imagen */
+  height: 80px; /* Altura de la imagen */
+  object-fit: contain; /* Ajusta la imagen para que quepa dentro del contenedor */
+  margin-bottom: 15px; /* Margen inferior */
+}
+
+/* Título dentro de la tarjeta de servicio */
+.servicio-card h3 {
+  font-size: 1.3em; /* Tamaño de fuente */
+  color: #a24c80; /* Color del texto */
+  margin-bottom: 10px; /* Margen inferior */
+}
+
+/* Párrafo dentro de la tarjeta de servicio */
+.servicio-card p {
+  font-size: 0.95em; /* Tamaño de fuente */
+  color: #4c3d3d; /* Color del texto */
+}
+
+/* ==========================================================================
+   Sección "Nuestro Staff"
+   ========================================================================== */
+
+/* Contenedor principal de la sección "Nuestro Staff" */
+.quienes-container {
+  padding: 60px 20px; /* Espaciado interno */
+  background-color: #cfeffc; /* Color de fondo */
+  border-radius: 15px; /* Bordes redondeados */
+  animation: fadeInUp 1s ease-out; /* Animación de aparición desde abajo */
+}
+
+/* Título de la sección "Nuestro Staff" */
+.quienes-container h2 {
+  text-align: center; /* Texto centrado */
+  color: #5db391; /* Color del texto */
+  font-size: 2em; /* Tamaño de fuente */
+  margin-bottom: 30px; /* Margen inferior */
+}
+
+/* Texto descriptivo de la sección */
+.descripcion {
+  max-width: 600px; /* Ancho máximo */
+  margin: 0 auto 40px auto; /* Centra el texto y añade margen inferior */
+  text-align: center; /* Texto centrado */
+  font-size: 1.1em; /* Tamaño de fuente */
+  color: #433c31; /* Color del texto */
+}
+
+/* Contenedor para las tarjetas del equipo */
+.equipo-cards {
+  display: flex; /* Habilita Flexbox */
+  justify-content: center; /* Centra las tarjetas horizontalmente */
+  flex-wrap: wrap; /* Permite que las tarjetas se envuelvan */
+  gap: 30px; /* Espacio entre las tarjetas */
+}
+
+/* Tarjeta individual de miembro del equipo */
+.card {
+  background-color: #e3fffc; /* Color de fondo */
+  padding: 20px; /* Espaciado interno */
+  border-radius: 20px; /* Bordes redondeados */
+  text-align: center; /* Texto centrado */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  width: 320px; /* Ancho fijo */
+  transition: transform 0.3s; /* Transición suave para la transformación */
+}
+
+/* Efecto hover para la tarjeta del equipo */
+.card:hover {
+  transform: translateY(-5px); /* Desplaza ligeramente hacia arriba */
+}
+
+/* Imagen de perfil dentro de la tarjeta del equipo */
+.card img {
+  width: 100px; /* Ancho de la imagen */
+  border-radius: 50%; /* Forma circular */
+  margin-bottom: 10px; /* Margen inferior */
+}
+
+/* Botón para LinkedIn dentro de la tarjeta del equipo */
+.btn-cv {
+  display: inline-block; /* Permite aplicar padding y margen */
+  margin-top: 10px; /* Margen superior */
+  padding: 10px 18px; /* Espaciado interno */
+  background-color: #8ecfc2; /* Color de fondo */
+  color: #fff; /* Color de texto */
+  text-decoration: none; /* Elimina el subrayado */
+  border-radius: 30px; /* Bordes muy redondeados */
+  font-size: 0.9em; /* Tamaño de fuente */
+  transition: background-color 0.3s ease; /* Transición suave para el color de fondo */
+}
+
+/* Efecto hover para el botón de LinkedIn */
+.btn-cv:hover {
+  background-color: #64bab9; /* Cambia el color de fondo al pasar el ratón */
+}
+
+/* ==========================================================================
+   Sección de Presentación
+   ========================================================================== */
+
+/* Contenedor principal de la sección de presentación */
+.presentacion {
+  background-color: #bad9f8; /* Color de fondo */
+  padding: 60px 20px; /* Espaciado interno */
+  border-radius: 15px; /* Bordes redondeados */
+  max-width: 1460px; /* Ancho máximo */
+  margin: 0 auto; /* Centra el contenedor */
+  text-align: center; /* Texto centrado */
+  animation: fadeInUp 1s ease-out; /* Animación de aparición desde abajo */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Sombra sutil */
+  margin-top: 20px; /* Margen superior */
+}
+
+/* Título principal de la sección de presentación */
+.presentacion h2 {
+  font-size: 2em; /* Tamaño de fuente */
+  color: #07539e; /* Color del texto */
+  margin-bottom: 20px; /* Margen inferior */
+  font-weight: 700; /* Grosor de la fuente */
+}
+
+/* Párrafos de la sección de presentación */
+.presentacion p {
+  font-size: 1.1em; /* Tamaño de fuente */
+  color: #032344; /* Color del texto */
+  margin-bottom: 20px; /* Margen inferior */
+  line-height: 1.6; /* Altura de línea */
+}
+
+/* Frase destacada en la sección de presentación */
+.presentacion em {
+  color: #227ad2; /* Color del texto */
+  font-style: normal; /* Elimina la cursiva predeterminada */
+  font-weight: 600; /* Grosor de la fuente */
+}
+
+/* Botón de presentación */
+.btn-presentacion {
+  background-color: #032344; /* Color de fondo */
+  color: #fff; /* Color de texto */
+  padding: 12px 25px; /* Espaciado interno */
+  border-radius: 30px; /* Bordes muy redondeados */
+  text-decoration: none; /* Elimina el subrayado */
+  font-weight: bold; /* Grosor de la fuente */
+  font-size: 1em; /* Tamaño de fuente */
+  transition: background-color 0.3s ease; /* Transición suave para el color de fondo */
+  display: inline-block; /* Permite aplicar padding y margen */
+  margin-top: 10px; /* Margen superior */
+}
+
+/* Efecto hover para el botón de presentación */
+.btn-presentacion:hover {
+  background-color: #032344; /* Mantiene el mismo color (se puede cambiar para un efecto visual) */
+}
+
+/* ==========================================================================
+   Sección de Productos
+   ========================================================================== */
+
+/* Contenedor principal de la sección de productos */
+.productos-container {
+  padding: 60px 20px; /* Espaciado interno */
+  background-color: #f4edf9; /* Color de fondo */
+  border-radius: 15px; /* Bordes redondeados */
+  animation: fadeInUp 1s ease; /* Animación de aparición desde abajo */
+  margin-bottom: 60px; /* Margen inferior para separar de la siguiente sección */
+  text-align: center; /* Texto centrado */
+}
+
+/* Título de la sección de productos */
+.productos-container h2 {
+  color: #18c4cc; /* Color del texto */
+  margin-bottom: 10px; /* Margen inferior */
+  font-size: 2em; /* Tamaño de fuente */
+}
+
+/* Texto introductorio de la sección de productos */
+.productos-container .intro {
+  color: #16103e; /* Color de texto */
+  max-width: 700px; /* Ancho máximo */
+  margin: 0 auto 40px auto; /* Centra el texto y añade margen inferior */
+  font-size: 1.1em; /* Tamaño de fuente */
+}
+
+/* Grid para las tarjetas de productos */
+.producto-grid {
+  display: flex; /* Habilita Flexbox */
+  flex-wrap: wrap; /* Permite que las tarjetas se envuelvan */
+  justify-content: center; /* Centra las tarjetas horizontalmente */
+  gap: 30px; /* Espacio entre las tarjetas */
+}
+
+/* Tarjeta individual de producto */
+.producto-card {
+  background-color: #ffece1; /* Color de fondo */
+  padding: 25px; /* Espaciado interno */
+  border-radius: 20px; /* Bordes redondeados */
+  text-align: center; /* Texto centrado */
+  width: 280px; /* Ancho fijo */
+  max-width: 90vw; /* Ancho máximo relativo al viewport */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  transition: transform 0.3s, background-color 0.3s; /* Transiciones suaves */
+}
+
+/* Efecto hover para la tarjeta de producto */
+.producto-card:hover {
+  transform: translateY(-5px); /* Desplaza ligeramente hacia arriba */
+  background-color: #fde2d5; /* Cambia el color de fondo */
+}
+
+/* Imagen dentro de la tarjeta de producto */
+.producto-card img {
+  width: 120px; /* Ancho de la imagen */
+  height: auto; /* Altura automática para mantener la proporción */
+  object-fit: contain; /* Ajusta la imagen para que quepa dentro del contenedor */
+  margin-bottom: 15px; /* Margen inferior */
+}
+
+/* Título dentro de la tarjeta de producto */
+.producto-card h3 {
+  font-size: 1.4em; /* Tamaño de fuente */
+  color: #a34279; /* Color del texto */
+  margin-bottom: 10px; /* Margen inferior */
+}
+
+/* Párrafo dentro de la tarjeta de producto */
+.producto-card p {
+  font-size: 0.95em; /* Tamaño de fuente */
+  color: #4b3a3a; /* Color del texto */
+}
+
+/* Botón de detalle del producto */
+.btn-detalle {
+  display: inline-block; /* Permite aplicar padding y margen */
+  margin-top: 15px; /* Margen superior */
+  background-color: #daae93; /* Color de fondo */
+  color: #fff; /* Color de texto */
+  padding: 10px 20px; /* Espaciado interno */
+  border-radius: 30px; /* Bordes muy redondeados */
+  text-decoration: none; /* Elimina el subrayado */
+  font-size: 0.9em; /* Tamaño de fuente */
+  font-weight: bold; /* Grosor de la fuente */
+  transition: background-color 0.3s ease; /* Transición suave para el color de fondo */
+}
+
+/* Efecto hover para el botón de detalle */
+.btn-detalle:hover {
+  background-color: #d68180; /* Cambia el color de fondo al pasar el ratón */
+}
+
+/* ==========================================================================
+   Sección de Clientes
+   ========================================================================== */
+
+/* Contenedor principal de la sección de clientes */
+.clientes-container {
+  padding: 60px 20px; /* Espaciado interno */
+  background-color: #f5f4ff; /* Color de fondo */
+  border-radius: 15px; /* Bordes redondeados */
+  animation: fadeInUp 1s ease; /* Animación de aparición desde abajo */
+}
+
+/* Título de la sección de clientes */
+.clientes-container h2 {
+  text-align: center; /* Texto centrado */
+  color: #5db8bb; /* Color del texto */
+  font-size: 2em; /* Tamaño de fuente */
+  margin-bottom: 20px; /* Margen inferior */
+}
+
+/* Texto introductorio de la sección de clientes */
+.clientes-container .intro {
+  text-align: center; /* Texto centrado */
+  max-width: 600px; /* Ancho máximo */
+  margin: 0 auto 40px auto; /* Centra el texto y añade margen inferior */
+  font-size: 1.1em; /* Tamaño de fuente */
+  color: #5c4a4a; /* Color del texto */
+}
+
+/* Grid para los logos de clientes */
+.clientes-grid {
+  display: flex; /* Habilita Flexbox */
+  flex-wrap: wrap; /* Permite que los logos se envuelvan */
+  justify-content: center; /* Centra los logos horizontalmente */
+  gap: 30px; /* Espacio entre los logos */
+}
+
+/* Tarjeta individual de cliente (para el logo) */
+.cliente-card {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0); /* Sombra transparente (se puede activar para un efecto) */
+  transition: transform 0.3s ease; /* Transición suave para la transformación */
+  width: 200px; /* Ancho fijo */
+  height: 200px; /* Altura fija */
+  display: flex; /* Habilita Flexbox */
+  align-items: center; /* Alinea verticalmente al centro */
+  justify-content: center; /* Alinea horizontalmente al centro */
+}
+
+/* Efecto hover para la tarjeta de cliente */
+.cliente-card:hover {
+  transform: scale(1.2); /* Aumenta el tamaño al pasar el ratón */
+}
+
+/* Imagen del logo del cliente */
+.cliente-card img {
+  max-width: 100%; /* Ancho máximo del 100% del contenedor */
+  max-height: 100%; /* Altura máxima del 100% del contenedor */
+  object-fit: contain; /* Ajusta la imagen para que quepa dentro del contenedor */
+}
+
+/* ==========================================================================
+   Sección de Contacto
+   ========================================================================== */
+
+/* Contenedor principal de la sección de contacto */
+.contacto-container {
+  padding: 60px 20px; /* Espaciado interno */
+  background-color: #f0faff; /* Color de fondo */
+  border-radius: 15px; /* Bordes redondeados */
+  animation: fadeInUp 1s ease; /* Animación de aparición desde abajo */
+}
+
+/* Título de la sección de contacto */
+.contacto-container h2 {
+  text-align: center; /* Texto centrado */
+  font-size: 2em; /* Tamaño de fuente */
+  color: #5db2c1; /* Color del texto */
+  margin-bottom: 20px; /* Margen inferior */
+}
+
+/* Texto introductorio de la sección de contacto */
+.contacto-container .intro {
+  text-align: center; /* Texto centrado */
+  max-width: 600px; /* Ancho máximo */
+  margin: 0 auto 40px auto; /* Centra el texto y añade margen inferior */
+  font-size: 1.1em; /* Tamaño de fuente */
+  color: #5a4b4b; /* Color del texto */
+}
+
+/* Formulario de contacto */
+.formulario {
+  max-width: 500px; /* Ancho máximo */
+  margin: 0 auto; /* Centra el formulario */
+  display: flex; /* Habilita Flexbox */
+  flex-direction: column; /* Elementos apilados verticalmente */
+  gap: 15px; /* Espacio entre los campos */
+}
+
+/* Etiquetas de los campos del formulario */
+.formulario label {
+  font-weight: bold; /* Grosor de la fuente */
+  color: #3d4166; /* Color del texto */
+}
+
+/* Campos de entrada y área de texto del formulario */
+.formulario input,
+.formulario textarea {
+  padding: 12px; /* Espaciado interno */
+  border: 2px solid #bbb1ff; /* Borde con color */
+  border-radius: 10px; /* Bordes redondeados */
+  background-color: #fffdfd; /* Color de fondo */
+  font-family: inherit; /* Hereda la fuente del cuerpo */
+  font-size: 1em; /* Tamaño de fuente */
+  transition: border-color 0.3s ease; /* Transición suave para el color del borde */
+}
+
+/* Efecto focus para los campos del formulario */
+.formulario input:focus,
+.formulario textarea:focus {
+  outline: none; /* Elimina el contorno predeterminado */
+  border-color: #8ccbd6; /* Cambia el color del borde al enfocar */
+}
+
+/* Botón de envío del formulario */
+.formulario button {
+  background-color: #8cd6c6; /* Color de fondo */
+  color: #fff; /* Color de texto */
+  padding: 12px; /* Espaciado interno */
+  border: none; /* Sin borde */
+  border-radius: 30px; /* Bordes muy redondeados */
+  cursor: pointer; /* Cambia el cursor a una mano */
+  font-size: 1em; /* Tamaño de fuente */
+  transition: background-color 0.3s ease; /* Transición suave para el color de fondo */
+}
+
+/* Efecto hover para el botón de envío del formulario */
+.formulario button:hover {
+  background-color: #6dafbe; /* Cambia el color de fondo al pasar el ratón */
+}
+
+/* ==========================================================================
+   Botón de WhatsApp Flotante
+   ========================================================================== */
+
+/* Botón flotante de WhatsApp */
+.whatsapp-button {
+  position: fixed; /* Fijo en la pantalla */
+  bottom: 20px; /* A 20px del borde inferior */
+  right: 20px; /* A 20px del borde derecho */
+  width: 55px; /* Ancho del botón */
+  height: 55px; /* Altura del botón */
+  z-index: 1000; /* Por encima de otros elementos */
+  border-radius: 50%; /* Forma circular */
+  padding: 0; /* Sin padding */
+  background-color: transparent; /* Fondo transparente */
+  animation: pulse 2.5s ease-in-out infinite, ring 2.5s infinite; /* Animaciones de pulso y anillo */
+  box-shadow: 0 0 0 0 rgba(24, 196, 204, 0.6); /* Sombra inicial transparente para el efecto de anillo */
+}
+
+/* Imagen dentro del botón de WhatsApp */
+.whatsapp-button img {
+  width: 100%; /* Ancho completo de la imagen */
+  height: 100%; /* Altura completa de la imagen */
+  object-fit: contain; /* Ajusta la imagen para que quepa */
+  border-radius: 60%; /* Bordes redondeados para la imagen */
+  display: block; /* Elimina el espacio extra debajo de la imagen */
+}
+
+/* ==========================================================================
+   Animaciones
+   ========================================================================== */
+
+/* Animación de aparición desde la izquierda */
+@keyframes fadeInLeft {
   0% {
-    opacity: 0;
-    transform: translateY(-20px);
+    opacity: 0; /* Completamente transparente */
+    transform: translateX(-30px); /* Desplazado 30px a la izquierda */
   }
   100% {
+    opacity: 1; /* Completamente visible */
+    transform: translateX(0); /* Posición original */
+  }
+}
+
+@keyframes menuItemFade {
+  to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-/* 📱 Responsive */
-@media screen and (max-width: 768px) {
-  .menu-toggle {
-    display: block;
+/* Animación de rotación en la entrada */
+@keyframes rotateIn {
+  from {
+    transform: rotate(-20deg) scale(0.8); /* Rota -20 grados y escala a 0.8 */
+    opacity: 0; /* Completamente transparente */
   }
-
-  .nav-responsive ul {
-    flex-direction: column;
-    background-color: #1f184b;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    width: 100%;
-    padding: 25px;
-    border-radius: 0 0 15px 15px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    display: none;
-  }
-
-  .nav-responsive ul.activo {
-    display: flex;
-  }
-
-  .nav-responsive a {
-    font-size: 1.1em;
-    padding: 10px 0;
+  to {
+    transform: rotate(0) scale(1); /* Vuelve a la posición original y escala a 1 */
+    opacity: 1; /* Completamente visible */
   }
 }
 
-/* 🧭 Menú de navegación */
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 25px;
-  margin: 0;
-  padding: 0;
-}
-
-nav a {
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.3s;
-}
-
-nav a:hover {
-  color: #18c4cc;
-}
-
-/* 📱 Menú responsivo */
-@media screen and (max-width: 768px) {
-  .nav-container {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 15px;
+/* Animación de entrada flotante */
+@keyframes floatIn {
+  from {
+    opacity: 0; /* Completamente transparente */
+    transform: translateY(-10px); /* Desplazado 10px hacia arriba */
   }
-
-  nav ul {
-    flex-direction: column;
-    gap: 12px;
+  to {
+    opacity: 1; /* Completamente visible */
+    transform: translateY(0); /* Posición original */
   }
 }
 
-/* 📱 Menú responsivo */
-@media screen and (max-width: 768px) {
-  .nav-container {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 15px;
-  }
-
-  nav ul {
-    flex-direction: column;
-    gap: 12px;
-  }
-}
-
-
-/* 📱 Sección de portada */
-.hero-container {
-  background: linear-gradient(135deg, #d5aefa, #9df0db);
-  padding: 80px 20px;
-  text-align: center;
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  animation: fadeIn 1.2s ease-in-out;
-}
-
-/* 🌈 Estilo del título principal */
-.hero-container h1 {
-  font-size: 2.5em;
-  color: #e87b0d; 
-  margin-bottom: 10px;
-}
-
-.hero-container .marca {
-  color: #18c4cc;
-}
-
-/* 💫 Subtítulo */
-.hero-container .subtitulo {
-  font-size: 1.3em;
-  color: #fd9f08;
-  margin-bottom: 30px;
-}
-.tira-fina img {
-  width: 100%;               /* se adapta al ancho del contenedor */            
-  aspect-ratio: 21 / 5;
-  height: auto;
-  object-fit: cover;         /* recorta con estilo sin deformar */
-  display: block;
-  border-radius: 10px;       /* opcional: bordes suaves */
-  margin: 0 auto;
-}
-
-/* 🖼 Imagen portada bien contenida */
-.hero-container .img img {
-  width: 100%;
-  max-width: 600px;
-  height: auto;
-  border-radius: 15px;
-  object-fit: cover;
-  display: block;
-  margin: 0 auto 30px auto;
-}
-
-
-
-/* 🌟 Animación fade in */
+/* Animación de aparición gradual */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* 📩 Botón de contacto */
-.btn-contacto {
-  display: inline-block;
-  background-color: #e87b0d;
-  color: #ffffff;
-  padding: 12px 24px;
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background-color 0.5s;
-}
-
-.btn-contacto:hover {
-  background-color: #442607
-;
-}
-
-/* 📱🔄 Estilos responsivos */
-@media screen and (max-width: 768px) {
-  .hero-container h1 {
-    font-size: 2em;
+  from {
+    opacity: 0; /* Completamente transparente */
   }
-
-  .hero-container p {
-    font-size: 1em;
-  }
-}
-/* 🌟 Contenedor general */
-.quehacemos-container {
-  background-color: #f4edf9;
-  padding: 60px 20px;
-  border-radius: 15px;
-  animation: fadeInUp 1s ease-out;
-}
-
-.quehacemos-container h2 {
-  text-align: center;
-  color: #18c4cc;
-  margin-bottom: 15px;
-}
-
-.quehacemos-container .intro {
-  text-align: center;
-  color: #16103e;
-  max-width: 700px;
-  margin: 0 auto 40px auto;
-  font-size: 1.1em;
-}
-
-/* 🎨 Grid de servicios */
-.servicio-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-}
-
-/* 🧃 Tarjeta individual */
-.servicio-card {
-  background-color: #ede7f6;
-  width: 280px;
-  max-width: 90vw;
-  padding: 25px 20px;
-  border-radius: 20px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  text-align: center;
-  transition: transform 0.3s ease;
-}
-
-.servicio-card:hover {
-  transform: translateY(-6px);
-  background-color: #dfd4f1;
-}
-
-/* 🖼 Imagen de servicio */
-.servicio-card img {
-  width: 80px;
-  height: 80px;
-  object-fit: contain;
-  margin-bottom: 15px;
-}
-
-/* 📱 Responsive */
-@media screen and (max-width: 768px) {
-  .servicio-grid {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .servicio-card {
-    width: 90%;
-  }
-}
-/* 🌸 Contenedor general */
-.quienes-container {
-  padding: 60px 20px;
-  background-color: #cfeffc;
-  border-radius: 15px;
-  animation: fadeInUp 1s ease-out;
-}
-
-/* 💫 Título de la sección */
-.quienes-container h2 {
-  text-align: center;
-  color: #5db391;
-  font-size: 2em;
-  margin-bottom: 30px;
-}
-
-/* 📝 Texto descriptivo */
-.descripcion {
-  max-width: 600px;
-  margin: 0 auto 40px auto;
-  text-align: center;
-  font-size: 1.1em;
-  color: #433c31;
-}
-
-/* 🧍 Tarjetas de equipo */
-.equipo-cards {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 30px;
-}
-
-/* 🖼️ Card individual */
-.card {
-  background-color: #e3fffc;
-  padding: 20px;
-  border-radius: 20px;
-  text-align: center;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  width: 320px;
-  transition: transform 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-}
-
-.card img {
-  width: 100px;
-  border-radius: 50%;
-  margin-bottom: 10px;
-}
-
-/* 📱 Adaptación móvil */
-@media screen and (max-width: 768px) {
-  .equipo-cards {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .card {
-    width: 80%;
+  to {
+    opacity: 1; /* Completamente visible */
   }
 }
 
-/* ✨ Animación de entrada */
-@keyframes fadeInUp {
-  from {opacity: 0; transform: translateY(30px);}
-  to {opacity: 1; transform: translateY(0);}
-}
-
-/* 🌟 Animación fade in */
-@keyframes fadeIn {
-  from {opacity: 0; transform: translateY(20px);}
-  to {opacity: 1; transform: translateY(0);}
-}
-
-/* 📘 Botón para LinkedIn */
-.btn-cv {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 10px 18px;
-  background-color: #8ecfc2;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 30px;
-  font-size: 0.9em;
-  transition: background-color 0.3s ease;
-}
-
-.btn-cv:hover {
-  background-color: #64bab9;
-}
-
-/* 🎨 Contenedor general */
-.quehacemos-container {
-  padding: 60px 20px;
-  background-color: #fbf7ff;
-  border-radius: 15px;
-  animation: fadeInUp 1s ease;
-}
-
-/* ✍️ Título */
-.quehacemos-container h2 {
-  text-align: center;
-  font-size: 2em;
-  color: #965fb5;
-  margin-bottom: 20px;
-}
-
-/* 📘 Descripción introductoria */
-.intro {
-  text-align: center;
-  max-width: 600px;
-  margin: 0 auto 40px auto;
-  font-size: 1.1em;
-  color: #5a4b4b;
-}
-
-/* 📦 Tarjetas de servicios */
-.servicio-grid {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 30px;
-}
-
-/* 📄 Estilo individual */
-.servicio-card {
-  background-color: #e0fbff;
-  padding: 25px 20px;
-  border-radius: 20px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  width: 260px;
-  text-align: center;
-  transition: transform 0.3s, background-color 0.3s;
-}
-
-.servicio-card:hover {
-  transform: translateY(-5px);
-  background-color: #d3d1ff;
-}
-
-.servicio-card h3 {
-  font-size: 1.3em;
-  color: #a24c80;
-  margin-bottom: 10px;
-}
-
-.servicio-card p {
-  font-size: 0.95em;
-  color: #4c3d3d;
-}
-
-/* 📱 Responsive */
-@media screen and (max-width: 768px) {
-  .servicio-grid {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .servicio-card {
-    width: 90%;
-  }
-}
-/* 📦 Contenedor de productos */
-.productos-container {
-  padding: 60px 20px;
-  background-color: #fefbf3;
-  border-radius: 15px;
-  animation: fadeInUp 1s ease;
-}
-
-.productos-container h2 {
-  text-align: center;
-  font-size: 2em;
-  color: #bf915c;
-  margin-bottom: 20px;
-}
-
-.intro {
-  text-align: center;
-  max-width: 600px;
-  margin: 0 auto 40px auto;
-  font-size: 1.1em;
-  color: #5a4949;
-}
-
-/* 💻 Grilla de productos */
-.producto-grid {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 30px;
-}
-
-.productos-container {
-  background-color: #f4edf9;
-  padding: 60px 20px;
-  border-radius: 15px;
-  text-align: center;
-}
-
-.productos-container h2 {
-  color: #18c4cc;
-  margin-bottom: 10px;
-}
-
-.productos-container .intro {
-  color: #16103e;
-  max-width: 700px;
-  margin: 0 auto 40px auto;
-  font-size: 1.1em;
-}
-
-/* 🧃 Tarjetas de productos */
-.producto-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-}
-
-.producto-card {
-  background-color: #ede7f6;
-  width: 280px;
-  max-width: 90vw;
-  padding: 25px 20px;
-  border-radius: 20px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  text-align: center;
-  transition: transform 0.3s ease;
-}
-
-.producto-card:hover {
-  transform: translateY(-6px);
-  background-color: #dfd4f1;
-}
-
-.producto-card img {
-  width: 100px;
-  height: auto;
-  object-fit: contain;
-  margin-bottom: 15px;
-}
-
-/* Botón */
-.btn-detalle {
-  display: inline-block;
-  margin-top: 10px;
-  background-color: #18c4cc;
-  color: #fff;
-  padding: 10px 18px;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 0.9em;
-  transition: background-color 0.3s ease;
-}
-
-.btn-detalle:hover {
-  background-color: #12929b;
-}
-
-/* 📱 Responsive */
-@media screen and (max-width: 768px) {
-  .producto-grid {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .producto-card {
-    width: 90%;
-  }
-
-  .producto-card img {
-    width: 80px;
-  }
-}
-
-/* 🧁 Tarjeta individual */
-.producto-card {
-  background-color: #ffece1;
-  padding: 25px;
-  border-radius: 20px;
-  text-align: center;
-  width: 280px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  transition: transform 0.3s, background-color 0.3s;
-}
-
-.producto-card:hover {
-  transform: translateY(-5px);
-  background-color: #fde2d5;
-}
-
-.producto-card h3 {
-  font-size: 1.4em;
-  color: #a34279;
-  margin-bottom: 10px;
-}
-
-.producto-card p {
-  font-size: 0.95em;
-  color: #4b3a3a;
-}
-
-/* 🎀 Botón */
-.btn-detalle {
-  margin-top: 15px;
-  display: inline-block;
-  background-color: #daae93;
-  color: #fff;
-  padding: 10px 20px;
-  border-radius: 30px;
-  text-decoration: none;
-  font-size: 0.9em;
-  transition: background-color 0.3s ease;
-}
-
-.btn-detalle:hover {
-  background-color: #d68180;
-}
-
-/* 📱 Responsive */
-@media screen and (max-width: 768px) {
-  .producto-grid {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .producto-card {
-    width: 90%;
-  }
-}
-/* 💖 Contenedor general */
-.clientes-container {
-  padding: 60px 20px;
-  background-color: #f5f4ff;
-  border-radius: 15px;
-  animation: fadeInUp 1s ease;
-}
-
-.clientes-container h2 {
-  text-align: center;
-  color: #5db8bb;
-  font-size: 2em;
-  margin-bottom: 20px;
-}
-
-.intro {
-  text-align: center;
-  max-width: 600px;
-  margin: 0 auto 40px auto;
-  font-size: 1.1em;
-  color: #5c4a4a;
-}
-
-/* 🧱 Grilla de logos */
-.clientes-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-}
-
-/* 🖼️ Tarjeta individual */
-.cliente-card {
- 
-
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0);
-  transition: transform 0.3s ease;
-  width: 200px;
-  height: 200px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.cliente-card:hover {
-  transform: scale(1.2);
- 
-}
-
-.cliente-card img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-}
-
-/* 📱 Adaptación móvil */
-@media screen and (max-width: 768px) {
-  .cliente-card {
-    width: 100px;
-    height: 100px;
-  }
-}
-
-/* 📬 Contenedor general */
-.contacto-container {
-  padding: 60px 20px;
-  background-color: #f0faff;
-  border-radius: 15px;
-  animation: fadeInUp 1s ease;
-}
-
-.contacto-container h2 {
-  text-align: center;
-  font-size: 2em;
-  color: #5db2c1;
-  margin-bottom: 20px;
-}
-
-.intro {
-  text-align: center;
-  max-width: 600px;
-  margin: 0 auto 40px auto;
-  font-size: 1.1em;
-  color: #5a4b4b;
-}
-
-/* 📝 Formulario */
-.formulario {
-  max-width: 500px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.formulario label {
-  font-weight: bold;
-  color: #3d4166;
-}
-
-.formulario input,
-.formulario textarea {
-  padding: 12px;
-  border: 2px solid #bbb1ff;
-  border-radius: 10px;
-  background-color: #fffdfd;
-  font-family: inherit;
-  font-size: 1em;
-  transition: border-color 0.3s ease;
-}
-
-.formulario input:focus,
-.formulario textarea:focus {
-  outline: none;
-  border-color: #8ccbd6;
-}
-
-/* ✨ Botón */
-.formulario button {
-  background-color: #8cd6c6;
-  color: #fff;
-  padding: 12px;
-  border: none;
-  border-radius: 30px;
-  cursor: pointer;
-  font-size: 1em;
-  transition: background-color 0.3s ease;
-}
-
-.formulario button:hover {
-  background-color: #6dafbe;
-}
-
-/* 📱 Responsive */
-@media screen and (max-width: 768px) {
-  .formulario {
-    width: 90%;
-  }
-}
-/*icono whatssap*/
-.whatsapp-button {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 55px; /* Tamaño deseado */
-  height: 55px;
-  z-index: 1000;
-  border-radius: 50%;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  background-color: transparent;
-  padding: 0;
-}
-
-.whatsapp-button img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border-radius: 50%;
-  display: block;
-}
-
-/*zoom en icono*/
-.whatsapp-button:hover {
-  transform: scale(1.1);
-  transition: transform 0.2s ease;
-}
-.whatsapp-button {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 55px;
-  height: 55px;
-  z-index: 1000;
-  border-radius: 50%;
-  padding: 0;
-  background-color: transparent;
-  animation: pulse 2.5s ease-in-out infinite, ring 2.5s infinite;
-  box-shadow: 0 0 0 0 rgba(24, 196, 204, 0.6);
-}
-
-.whatsapp-button img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border-radius: 60%;
-  display: block;
-}
-
-/* 💓 Pulso suave */
-@keyframes pulse {
-  0%, 100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-}
-
-/* 🌊 Efecto de brillo circular */
-@keyframes ring {
+/* Animación de zoom en la entrada */
+@keyframes zoomIn {
   0% {
-    box-shadow: 0 0 0 0 rgba(24, 204, 45, 0.5);
-  }
-  70% {
-    box-shadow: 0 0 0 12px rgba(24, 196, 204, 0);
+    transform: scale(0.95); /* Escala a 0.95 */
+    opacity: 0; /* Completamente transparente */
   }
   100% {
-    box-shadow: 0 0 0 0 rgba(24, 196, 204, 0);
+    transform: scale(1); /* Vuelve a la escala original */
+    opacity: 1; /* Completamente visible */
   }
+}
+
+/* Animación de aparición desde abajo */
+@keyframes fadeInUp {
+  from {
+    opacity: 0; /* Completamente transparente */
+    transform: translateY(30px); /* Desplazado 30px hacia abajo */
+  }
+  to {
+    opacity: 1; /* Completamente visible */
+    transform: translateY(0); /* Posición original */
+  }
+}
+
+/* Animación de pulso para el botón de WhatsApp */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1); /* Escala normal */
+  }
+  50% {
+    transform: scale(1.1); /* Ligeramente más grande */
+  }
+}
+
+/* Animación de brillo circular para el botón de WhatsApp */
+@keyframes ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(24, 204, 45, 0.5); /* Sombra inicial transparente */
+  }
+  70% {
+    box-shadow: 0 0 0 12px rgba(24, 196, 204, 0); /* Sombra se expande y se vuelve transparente */
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(24, 196, 204, 0); /* Vuelve a la sombra inicial transparente */
+  }
+}
+
+/* Animación de deslizamiento de menú (para responsive) */
+@keyframes menuSlideIn {
+  0% {
+    opacity: 0; /* Completamente transparente */
+    transform: translateY(-20px); /* Desplazado 20px hacia arriba */
+  }
+  100% {
+    opacity: 1; /* Completamente visible */
+    transform: translateY(0); /* Posición original */
+  }
+}
+
+/* ==========================================================================
+   Media Queries (Diseño Responsivo)
+   ========================================================================== */
+
+/* Estilos para pantallas con un ancho máximo de 768px (típicamente tablets y móviles) */
+@media screen and (max-width: 768px) {
+  /* Ajustes para el contenedor del menú en responsive */
+  .nav-container {
+    flex-direction: column; /* Elementos apilados verticalmente */
+    align-items: flex-start; /* Alinea los elementos al inicio */
+    gap: 15px; /* Espacio entre elementos */
+  }
+
+  /* Ajustes para la lista de navegación principal en responsive */
+  nav ul {
+    flex-direction: column; /* Elementos apilados verticalmente */
+    gap: 12px; /* Espacio entre elementos */
+  }
+
+  /* Ajustes para el contenedor del logo y menú en responsive */
+  .logo-menu {
+    flex-direction: column; /* Elementos apilados verticalmente */
+    align-items: flex-start; /* Alinea los elementos al inicio */
+    gap: 10px; /* Espacio entre elementos */
+  }
+
+  /* Muestra el icono del menú en pantallas pequeñas */
+  .menu-toggle {
+    display: block; /* Hace visible el icono */
+    align-self: flex-end; /* Alinea el icono al final del contenedor */
+  }
+
+  /* Ajustes para la lista de navegación responsive (oculta por defecto) */
+  .nav-responsive ul {
+    flex-direction: column; /* Elementos apilados verticalmente */
+    background-color: #1f184b; /* Color de fondo */
+    position: absolute; /* Posicionamiento absoluto */
+    top: 60px; /* Debajo del encabezado */
+    left: 0; /* A la izquierda */
+    width: 100%; /* Ancho completo */
+    padding: 25px; /* Espaciado interno */
+    border-radius: 0 0 15px 15px; /* Bordes inferiores redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra */
+    display: none; /* Oculto por defecto */
+  }
+
+  /* Muestra la lista de navegación responsive cuando tiene la clase 'activo' */
+  .nav-responsive ul.activo {
+    display: flex; /* Hace visible la lista */
+  }
+
+  /* Ajustes para los enlaces de navegación responsive */
+  .nav-responsive a {
+    font-size: 1.1em; /* Tamaño de fuente */
+    padding: 10px 0; /* Espaciado interno */
+  }
+
+  /* Ajustes para el título principal de la sección de portada */
+  .hero-container h1 {
+    font-size: 2em; /* Tamaño de fuente más pequeño */
+  }
+
+  /* Ajustes para el párrafo de la sección de portada */
+  .hero-container p {
+    font-size: 1em; /* Tamaño de fuente más pequeño */
+  }
+
+  /* Ajustes para el grid de servicios en responsive */
+  .servicio-grid {
+    flex-direction: column; /* Tarjetas apiladas verticalmente */
+    align-items: center; /* Centra las tarjetas */
+  }
+
+  /* Ajustes para la tarjeta de servicio en responsive */
+  .servicio-card {
+    width: 90%; /* Ancho del 90% del contenedor */
+  }
+
+  /* Ajustes para las tarjetas del equipo en responsive */
+  .equipo-cards {
+    flex-direction: column; /* Tarjetas apiladas verticalmente */
+    align-items: center; /* Centra las tarjetas */
+  }
+
+  /* Ajustes para la tarjeta individual del equipo en responsive */
+  .card {
+    width: 80%; /* Ancho del 80% del contenedor */
+  }
+
+  /* Ajustes para la sección de presentación en responsive */
+  .presentacion {
+    padding: 40px 15px; /* Espaciado interno reducido */
+  }
+
+  /* Ajustes para el título de la sección de presentación en responsive */
+  .presentacion h2 {
+    font-size: 1.6em; /* Tamaño de fuente más pequeño */
+  }
+
+  /* Ajustes para los párrafos de la sección de presentación en responsive */
+  .presentacion p {
+    font-size: 1em; /* Tamaño de fuente más pequeño */
+  }
+
+  /* Ajustes para el grid de productos en responsive */
+  .producto-grid {
+    flex-direction: column; /* Tarjetas apiladas verticalmente */
+    align-items: center; /* Centra las tarjetas */
+  }
+
+  /* Ajustes para la tarjeta de producto en responsive */
+  .producto-card {
+    width: 90%; /* Ancho del 90% del contenedor */
+  }
+
+  /* Ajustes para la imagen de producto en responsive */
+  .producto-card img {
+    width: 80px; /* Ancho de la imagen más pequeño */
+  }
+
+  /* Ajustes para la tarjeta de cliente en responsive */
+  .cliente-card {
+    width: 100px; /* Ancho más pequeño */
+    height: 100px; /* Altura más pequeña */
+  }
+
+  /* Ajustes para el formulario de contacto en responsive */
+  .formulario {
+    width: 90%; /* Ancho del 90% del contenedor */
+  }
+}
+
+/* ==========================================================================
+   Ajustes específicos para la imagen inicio.jpg y el menú responsive
+   ========================================================================== */
+
+   .tira-fina {
+  margin: 5px;
+  padding: 0;
+}
+
+.hero-container {
+  margin-top: 0;
+  padding-top: 20px; /* si querés un poco de aire visual */
+}
+.hero-container {
+  animation: fadeInUp 1s ease-out;
+  animation-fill-mode: forwards;
+}
+
+/* Asumiendo que inicio.jpg está dentro de una clase 'tira-fina' */
+.tira-fina img {
+  
+  width: 98%;
+  aspect-ratio: 21 / 5;
+  object-fit: cover;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  padding: 0;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1.2s ease-in-out; /* Restaurar animación */
+  animation-fill-mode: forwards;
 }

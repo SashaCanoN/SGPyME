@@ -5,31 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SGPyME</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="img/icon.png">
 </head>
 <body>
 <header>
-  <div class="nav-container">
+<div class="menu-responsive" id="menu-bar">
+  <div class="logo-menu">
     <div class="logo-area">
-      <img src="img\Logo.png" alt="Logo SGPyME" class="logo-img">
+      <img src="img/icon.png" alt="Logo SGPyME" class="logo-img">
       <div class="logo-texto">
         <h1>SGPyME</h1>
         <p>ayudando con su negocio</p>
       </div>
     </div>
-       <div class="menu-responsive">
-  <div class="menu-toggle" id="toggle-menu"> ☰ </div>
-  <nav class="nav-responsive" id="nav-menu">
-    <ul>
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="quienes-somos.html">Quiénes Somos</a></li>
-      <li><a href="que_hacemos.html">Qué Hacemos</a></li>
-      <li><a href="products.html">Productos</a></li>
-      <li><a href="clientes.html">Clientes</a></li>
-      <li><a href="contacto.html">Contacto</a></li>
-    </ul>
-  </nav>
-</div>
+    <nav class="nav-responsive" id="nav-menu">
+     <ul>
+  <li style="--i:0"><a href="index.html">Inicio</a></li>
+  <li style="--i:1"><a href="staff.html">Nuestro Staff</a></li>
+  <li style="--i:2"><a href="que_hacemos.html">Qué Hacemos</a></li>
+  <li style="--i:3"><a href="products.html">Productos</a></li>
+  <li style="--i:4"><a href="clientes.html">Clientes</a></li>
+  <li style="--i:5"><a href="contacto.html">Contacto</a></li>
+</ul>
+    </nav>
   </div>
+</div>
 </header>
 
   <main>
@@ -47,10 +47,7 @@
     <img src="../SGPYME/img/mi_negocio.png" alt="Mi Negocio">
     <h3>MI NEGOCIO</h3>
     <p>Sistema para la gestión integral de stock, costos y categorización visual. Ideal para almacenes y emprendimientos 📊.</p>
-  <a href="https://wa.me/5492224497617?text=Hola.%20Quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20su%20producto%20Mi%20Negocio." class="btn-detalle" target="_blank">
-  solicitar más info
-</a>
-    <a href="../SGPYME/mi-negocio.html" class="btn-detalle">Ver imágenes</a>
+    <a href="../SGPYME/mi-negocio.html" class="btn-detalle">Información</a>
   </div>
 
   <!-- PRODFLOW -->
@@ -58,8 +55,8 @@
     <img src="../SGPYME/img/prodflow.png" alt="ProdFlow">
     <h3>PRODFLOW</h3>
     <p>App enfocada en el flujo de productos y procesos, con seguimiento estético y funcionalidades colaborativas 📈.</p>
-    <a href="https://api.whatsapp.com/send/?phone=5492224497617&text=Hola.+Quiero+m%C3%A1s+informaci%C3%B3n+sobre+su+producto+Prodflow.&type=phone_number&app_absent=0" target="_blank" class="btn-detalle">Solicitar más info</a>
-    <a href="../SGPYME/prodflow.html" class="btn-detalle">Ver imágenes</a>
+    
+    <a href="../SGPYME/prodflow.html" class="btn-detalle">Información</a>
   </div>
 </div>
   </div>
@@ -115,6 +112,16 @@
       setTimeout(() => {
         navList.style.display = 'none';
       }, 400); // debe coincidir con el tiempo en CSS
+    }
+  });
+</script>
+<script>
+  window.addEventListener('scroll', function () {
+    const menu = document.getElementById('menu-bar');
+    if (window.scrollY > 50) {
+      menu.classList.add('scrolled');
+    } else {
+      menu.classList.remove('scrolled');
     }
   });
 </script>

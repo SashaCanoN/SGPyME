@@ -9,25 +9,27 @@
 </head>
 <body>
 <header>
-  <div class="nav-container">
+<div class="menu-responsive" id="menu-bar">
+  <div class="logo-menu">
     <div class="logo-area">
-      <img src="C:\Users\PREDATOR\Desktop\SGPYME\img\Logo.png" alt="Logo SGPyME" class="logo-img">
+      <img src="img/icon.png" alt="Logo SGPyME" class="logo-img">
       <div class="logo-texto">
         <h1>SGPyME</h1>
         <p>ayudando con su negocio</p>
       </div>
     </div>
-    <nav>
-         <ul>
-        <li><a href="../SGPYME/index.html">Inicio</a></li>
-        <li><a href="../SGPYME/quienes-somos.html">Quiénes Somos</a></li>
-        <li><a href="../SGPYME/que_hacemos.html">Qué Hacemos</a></li>
-        <li><a href="..//SGPYME/products.html">Productos</a></li>
-        <li><a href="..//SGPYME/clientes.html">Clientes</a></li>
-        <li><a href="../SGPYME/contacto.html">Contacto</a></li>
-      </ul>
+    <nav class="nav-responsive" id="nav-menu">
+     <ul>
+  <li style="--i:0"><a href="index.html">Inicio</a></li>
+  <li style="--i:1"><a href="staff.html">Nuestro Staff</a></li>
+  <li style="--i:2"><a href="que_hacemos.html">Qué Hacemos</a></li>
+  <li style="--i:3"><a href="products.html">Productos</a></li>
+  <li style="--i:4"><a href="clientes.html">Clientes</a></li>
+  <li style="--i:5"><a href="contacto.html">Contacto</a></li>
+</ul>
     </nav>
   </div>
+</div>
 </header>
 
   <main>
@@ -41,26 +43,6 @@
   <li>📊 Toma decisiones informadas con balances en tiempo real</li>
   <li>🏪 Pensado para negocios chicos</li>
 </ul>
-
-
-    <div class="carrusel-contenedor">
-  <button class="flecha" id="flecha-izq">◀</button>
-
-  <div class="carrusel">
-    <div class="slide activo">
-      <img src="img/prodflow_1.jpg" alt="Flujo visual de productos">
-    </div>
-    <div class="slide">
-      <img src="img/prodflow_2.jpg" alt="Panel colaborativo">
-    </div>
-    <div class="slide">
-      <iframe src="https://www.youtube.com/embed/TU_OTRO_CODIGO_VIDEO" frameborder="0" allowfullscreen></iframe>
-    </div>
-  </div>
-
-  <button class="flecha" id="flecha-der">▶</button>
-</div>
-
    <a href="https://wa.me/5492224497617?text=Hola.%20Quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20su%20producto%20Mi%20Negocio." class="btn-detalle" target="_blank">
   Solicitar más info
 </a>
@@ -76,10 +58,19 @@
    class="whatsapp-button" target="_blank" aria-label="WhatsApp SGPyME">
  <img src="../SGPYME/img/whatsapp.png">
 </a>
+
+<script>
+  window.addEventListener('scroll', function () {
+    const menu = document.getElementById('menu-bar');
+    if (window.scrollY > 50) {
+      menu.classList.add('scrolled');
+    } else {
+      menu.classList.remove('scrolled');
+    }
+  });
+</script>
   <footer>
     <p>© SGPyME</p>
   </footer>
-
-  <script src="products.js"></script>
 </body>
 </html>

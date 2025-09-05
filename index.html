@@ -5,43 +5,66 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SGPyME</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="img/icon.png">
 </head>
 <body>
 <header>
-  <div class="nav-container">
+<div class="menu-responsive" id="menu-bar">
+  <div class="logo-menu">
     <div class="logo-area">
-      <img src="C:\Users\PREDATOR\Desktop\SGPYME\img\Logo.png" alt="Logo SGPyME" class="logo-img">
+      <img src="img/icon.png" alt="Logo SGPyME" class="logo-img">
       <div class="logo-texto">
         <h1>SGPyME</h1>
         <p>ayudando con su negocio</p>
       </div>
     </div>
-    <div class="menu-responsive">
-  <div class="menu-toggle" id="toggle-menu"> ☰ </div>
-  <nav class="nav-responsive" id="nav-menu">
-    <ul>
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="quienes-somos.html">Quiénes Somos</a></li>
-      <li><a href="que_hacemos.html">Qué Hacemos</a></li>
-      <li><a href="products.html">Productos</a></li>
-      <li><a href="clientes.html">Clientes</a></li>
-      <li><a href="contacto.html">Contacto</a></li>
-    </ul>
-  </nav>
-</div>
+    <nav class="nav-responsive" id="nav-menu">
+     <ul>
+  <li style="--i:0"><a href="index.html">Inicio</a></li>
+  <li style="--i:1"><a href="staff.html">Nuestro Staff</a></li>
+  <li style="--i:2"><a href="que_hacemos.html">Qué Hacemos</a></li>
+  <li style="--i:3"><a href="products.html">Productos</a></li>
+  <li style="--i:4"><a href="clientes.html">Clientes</a></li>
+  <li style="--i:5"><a href="contacto.html">Contacto</a></li>
+</ul>
+    </nav>
   </div>
+</div>
 </header>
   <main>
-     <section class="tira-fina">
-  <img src="../SGPYME/img/inicio.jpg" alt="Tira decorativa">
+     <section class="tira-fina" id="tira-violeta">
+  <img src="img/inicio.jpg" alt="Tira decorativa">
 </section>
-    <section id="inicio">
+    <section id="inicio" >
   <!-- 📝 Portada principal: Sección inicial con fondo pastel e imagen decorativa -->
-  <div class="hero-container">
+  <center><div class="hero-container" >
     <h1>Bienvenidos a SGPyME</h1>
     <p>Soluciones creativas para pequeñas y medianas empresas </p> 
-    <a href="#contacto" class="btn-contacto">Contáctanos</a>
+    <a href="https://wa.me/5492224497617?text=Hola.%20Quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20productos%20y%20servicios%20de%20SGPyME." class="btn-contacto">Contáctanos</a>
   </div>
+<div>
+  <section class="presentacion">
+  <h2>Transformá tu negocio con soluciones digitales personalizadas para emprendedores y PyMEs</h2>
+  
+    <p>
+  Si buscás <strong>automatizar tareas</strong>, mejorar tu organización o tener una web que trabaje para vos, estás en el lugar correcto. Combinamos <strong>tecnología, diseño y experiencia de usuario</strong> para que tu negocio se destaque en Internet, atraiga más clientes y potencie tu presencia online. Pero no solo eso: también desarrollamos herramientas para <strong>uso interno</strong> que te ayudan a organizar mejor tus procesos, optimizar tiempos y tomar decisiones con mayor claridad. Porque crecer también significa ordenar, simplificar y conectar cada parte de tu emprendimiento.
+</p>
+  
+  <p>
+    También desarrollamos <strong>sistemas de gestión personalizados</strong> para PyMEs y negocios que buscan crecer con tecnología accesible y estética profesional. Nuestros <strong>programas de gestión</strong> se adaptan a cada función que tu negocio necesita: ventas, stock, clientes, turnos, reportes, facturación y más. Vos nos contás cómo trabajás, y nosotros lo convertimos en una herramienta digital que te simplifica la vida.
+  </p>
+  
+  <p>
+    Si buscás <strong>automatizar tareas</strong>, mejorar tu organización o tener una web que trabaje para vos, estás en el lugar correcto. Combinamos <strong>tecnología, diseño y experiencia de usuario</strong> para que tu negocio se destaque en Internet, atraiga más clientes y potencie tu presencia online.
+  </p>
+  
+  <p>
+    💡 <em>Tu emprendimiento merece brillar. Nosotros te ayudamos a lograrlo con soluciones digitales que funcionan y enamoran.</em>
+  </p>
+  <center><a href="https://wa.me/5492224497617?text=Hola.%20Quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20productos%20y%20servicios%20de%20SGPyME." class="btn-presentacion">Solicitá tu sistema o sitio web personalizado</a></center>
+</center>
+</section>
+</div>
 
 <section id="que-hacemos">
   <div class="quehacemos-container">
@@ -80,6 +103,7 @@ pequeños negocios y pymes</h2>
     </div>
   </div>
 </section>
+
 
 <section id="nuestros-clientes">
   <div class="clientes-container">
@@ -139,33 +163,63 @@ pequeños negocios y pymes</h2>
    class="whatsapp-button" target="_blank" aria-label="WhatsApp SGPyME">
   <img src="img/whatsapp.png">
 </a>
+</main>
   <footer>
     <p>© SGPyME</p>
   </footer>
 
- <script>
+ 
+<script>
   const toggle = document.getElementById('toggle-menu');
   const navList = document.getElementById('nav-menu').querySelector('ul');
-
   let menuVisible = false;
 
   toggle.addEventListener('click', () => {
-    if (!menuVisible) {
-      navList.classList.remove('ocultar');
-      navList.classList.add('mostrar');
-      navList.style.display = 'flex';
-      toggle.textContent = '❌';
-      menuVisible = true;
-    } else {
-      navList.classList.remove('mostrar');
-      navList.classList.add('ocultar');
-      toggle.textContent = '☰';
-      menuVisible = false;
+    navList.classList.toggle('activo');
+    toggle.textContent = menuVisible ? '☰' : '❌';
+    menuVisible = !menuVisible;
+  });
+  
+window.addEventListener('scroll', function () {
+  const menu = document.getElementById('menu-bar');
+  if (window.scrollY > 50) {
+    menu.classList.add('scrolled');
+  } else {
+    menu.classList.remove('scrolled');
+  }
+});
 
-      // Retraso para ocultar visualmente luego de la animación
-      setTimeout(() => {
-        navList.style.display = 'none';
-      }, 400); // debe coincidir con el tiempo en CSS
+
+</script>
+<script>
+  window.addEventListener('scroll', function () {
+    const menu = document.getElementById('menu-bar');
+    const tira = document.getElementById('tira-violeta');
+
+   if (window.scrollY > 300) {
+  tira.style.opacity = '0';
+  tira.style.transition = 'opacity 0.5s ease';
+} else {
+  tira.style.opacity = '1';
+}
+  });
+</script>
+<script>
+  const menu = document.getElementById('menu-bar');
+
+  // Detectar scroll al cargar
+  window.addEventListener('load', function () {
+    if (window.scrollY > 0) {
+      menu.classList.add('scrolled');
+    }
+  });
+
+  // Detectar scroll en movimiento
+  window.addEventListener('scroll', function () {
+    if (window.scrollY > 0) {
+      menu.classList.add('scrolled');
+    } else {
+      menu.classList.remove('scrolled');
     }
   });
 </script>
