@@ -778,6 +778,7 @@ nav a:hover {
   background-color: transparent; /* Fondo transparente */
   animation: pulse 2.5s ease-in-out infinite, ring 2.5s infinite; /* Animaciones de pulso y anillo */
   box-shadow: 0 0 0 0 rgba(24, 196, 204, 0.6); /* Sombra inicial transparente para el efecto de anillo */
+  transition: transform 0.2s ease;
 }
 
 /* Imagen dentro del botón de WhatsApp */
@@ -921,28 +922,40 @@ nav a:hover {
   /* Ajustes para la lista de navegación principal en responsive */
   nav ul {
     flex-direction: column; /* Elementos apilados verticalmente */
-    gap: 12px; /* Espacio entre elementos */
+    gap: 10px; /* Espacio entre elementos */
   }
 
   /* Ajustes para el contenedor del logo y menú en responsive */
   .logo-menu {
+    display: flex;
     flex-direction: column; /* Elementos apilados verticalmente */
-    align-items: flex-start; /* Alinea los elementos al inicio */
-    gap: 10px; /* Espacio entre elementos */
+    align-items: center; /* Alinea los elementos al inicio */
+    gap: 0; /* Espacio entre elementos */
   }
 
   /* Muestra el icono del menú en pantallas pequeñas */
   .menu-toggle {
     display: block; /* Hace visible el icono */
-    align-self: flex-end; /* Alinea el icono al final del contenedor */
-  }
-
+  font-size: 2.5em;
+  color: #18c4cc;
+  cursor: pointer;
+  margin: 5px 0;
+}
+.menu-responsive.scrolled {
+  background-color:  rgba(22, 16, 62, 0.85); /* fondo semi-transparente */
+  backdrop-filter: blur(6px); /* efecto de desenfoque suave */
+  transition: background-color 0.5s ease, backdrop-filter 0.5s ease;
+}
   /* Ajustes para la lista de navegación responsive (oculta por defecto) */
   .nav-responsive ul {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 25s ease;
     flex-direction: column; /* Elementos apilados verticalmente */
-    background-color: #1f184b; /* Color de fondo */
+    align-items: center;
+    background-color:  #16103e; /* Color de fondo */
     position: absolute; /* Posicionamiento absoluto */
-    top: 60px; /* Debajo del encabezado */
+    top: 140px; /* Debajo del encabezado */
     left: 0; /* A la izquierda */
     width: 100%; /* Ancho completo */
     padding: 25px; /* Espaciado interno */
@@ -954,6 +967,7 @@ nav a:hover {
   /* Muestra la lista de navegación responsive cuando tiene la clase 'activo' */
   .nav-responsive ul.activo {
     display: flex; /* Hace visible la lista */
+    max-height: 500px; /* ajustá según la cantidad de ítems */
   }
 
   /* Ajustes para los enlaces de navegación responsive */

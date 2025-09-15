@@ -19,6 +19,7 @@
       </div>
     </div>
     <nav class="nav-responsive" id="nav-menu">
+    <div class="menu-toggle" id="toggle-menu">☰</div>
      <ul>
   <li style="--i:0"><a href="index.html">Inicio</a></li>
   <li style="--i:1"><a href="staff.html">Nuestro Staff</a></li>
@@ -170,15 +171,16 @@ pequeños negocios y pymes</h2>
 
  
 <script>
-  const toggle = document.getElementById('toggle-menu');
-  const navList = document.getElementById('nav-menu').querySelector('ul');
-  let menuVisible = false;
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggle = document.getElementById('toggle-menu');
+    const navList = document.getElementById('nav-menu').querySelector('ul');
 
-  toggle.addEventListener('click', () => {
-    navList.classList.toggle('activo');
-    toggle.textContent = menuVisible ? '☰' : '❌';
-    menuVisible = !menuVisible;
+    toggle.addEventListener('click', () => {
+      const isActive = navList.classList.toggle('activo');
+      toggle.textContent = isActive ? '❌' : '☰';
+    });
   });
+
   
 window.addEventListener('scroll', function () {
   const menu = document.getElementById('menu-bar');
@@ -188,8 +190,16 @@ window.addEventListener('scroll', function () {
     menu.classList.remove('scrolled');
   }
 });
-
-
+</script>
+<script>
+  window.addEventListener('scroll', function () {
+    const menu = document.getElementById('menu-bar');
+    if (window.scrollY > 50) {
+      menu.classList.add('scrolled');
+    } else {
+      menu.classList.remove('scrolled');
+    }
+  });
 </script>
 <script>
   window.addEventListener('scroll', function () {
