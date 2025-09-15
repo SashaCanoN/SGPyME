@@ -118,36 +118,64 @@
   <img src="../SGPYME/img/whatsapp.png">
 </a>
 
- <script>
-  const toggle = document.getElementById('toggle-menu');
-  const navList = document.getElementById('nav-menu').querySelector('ul');
 
-  let menuVisible = false;
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggle = document.getElementById('toggle-menu');
+    const navList = document.getElementById('nav-menu').querySelector('ul');
 
-  toggle.addEventListener('click', () => {
-    if (!menuVisible) {
-      navList.classList.remove('ocultar');
-      navList.classList.add('mostrar');
-      navList.style.display = 'flex';
-      toggle.textContent = '❌';
-      menuVisible = true;
+    toggle.addEventListener('click', () => {
+      const isActive = navList.classList.toggle('activo');
+      toggle.textContent = isActive ? '❌' : '☰';
+    });
+  });
+
+  
+window.addEventListener('scroll', function () {
+  const menu = document.getElementById('menu-bar');
+  if (window.scrollY > 50) {
+    menu.classList.add('scrolled');
+  } else {
+    menu.classList.remove('scrolled');
+  }
+});
+</script>
+<script>
+  window.addEventListener('scroll', function () {
+    const menu = document.getElementById('menu-bar');
+    if (window.scrollY > 50) {
+      menu.classList.add('scrolled');
     } else {
-      navList.classList.remove('mostrar');
-      navList.classList.add('ocultar');
-      toggle.textContent = '☰';
-      menuVisible = false;
-
-      // Retraso para ocultar visualmente luego de la animación
-      setTimeout(() => {
-        navList.style.display = 'none';
-      }, 400); // debe coincidir con el tiempo en CSS
+      menu.classList.remove('scrolled');
     }
   });
 </script>
 <script>
   window.addEventListener('scroll', function () {
     const menu = document.getElementById('menu-bar');
-    if (window.scrollY > 50) {
+    const tira = document.getElementById('tira-violeta');
+
+   if (window.scrollY > 300) {
+  tira.style.opacity = '0';
+  tira.style.transition = 'opacity 0.5s ease';
+} else {
+  tira.style.opacity = '1';
+}
+  });
+</script>
+<script>
+  const menu = document.getElementById('menu-bar');
+
+  // Detectar scroll al cargar
+  window.addEventListener('load', function () {
+    if (window.scrollY > 0) {
+      menu.classList.add('scrolled');
+    }
+  });
+
+  // Detectar scroll en movimiento
+  window.addEventListener('scroll', function () {
+    if (window.scrollY > 0) {
       menu.classList.add('scrolled');
     } else {
       menu.classList.remove('scrolled');
